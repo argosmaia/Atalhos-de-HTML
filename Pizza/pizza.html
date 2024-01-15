@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Doughnut Dinâmico</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h2>Gráfico de Doughnut Dinâmico</h2>
+
+    <div>
+        <label for="insereValor">Insira os valores (separados por vírgula):</label>
+        <input type="text" id="insereValor">
+        <label for="insereTexto">Insira os textos (separados por vírgula):</label>
+        <input type="text" id="insereTexto">
+        <button onclick="atualizaGrafico()">Atualizar Gráfico</button>
+    </div>
+
+    <canvas id="myChart"></canvas>
+
+</body>
+</html>

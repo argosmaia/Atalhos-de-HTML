@@ -1,0 +1,68 @@
+:root {
+    --cor-pri-a: #1393A0ff;
+
+    --cor-pri-b: #64E0EEff;
+
+    --cor-pri-c: #3EB8F0ff;
+
+    --cor-pri-d: #42C1FCff;
+
+    --cor-sec-a: #65c1beff;
+
+    --cor-sec-b: #704D00ff;
+
+    --cor-sec-c: #F0A400ff;
+
+    --cor-sec-d: #FCAD00ff;
+
+}
+
+body{
+    background-color: #ddd;
+}
+.grafico-barra{
+    width: 600px;
+    background-color: #ffffff88;
+    border-radius: 15px;
+}
+.grafico-barra .barra{
+    fill: var(--cor-pri-a);
+}
+
+.grafico-barra .barra:hover{
+    fill:var(--cor-sec-d);
+    transition: 0.5s;
+    cursor: default;
+}
+
+.grafico-barra .rotulo:hover{
+    font-size: 1.1rem;
+    transition: 0.5s;
+    cursor: default;
+}
+
+
+.grafico-barra .titulo{
+    font-size: 1.2rem;
+}
+
+.grafico-barra .teste{
+    
+    fill: var(--cor-pri-a);
+    stroke-dashoffset: 0;
+    stroke-width: 200;
+
+}
+
+
+.barra.indice-1{
+    stroke: var(--cor-pri-a);
+    fill: var(--cor-pri-a);
+}
+.barra.indice-2{
+    stroke: var(--cor-pri-b);
+    fill: var(--cor-pri-c)
+}
+.barra.indice-3{
+    stroke: var(--cor-pri-c);
+}

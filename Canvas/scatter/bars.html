@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barras</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <script>
+        var data = {
+            labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4'],
+            datasets: [{
+                type: 'bar', 
+                label: 'Main Bars',
+                backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                data: [50, 75, 30, 45],
+            }, {
+                type: 'line', 
+                label: 'Bars Above',
+                borderColor: 'rgba(255, 99, 132, 0.7)',
+                borderWidth: 2,
+                fill: false,
+                data: [60, 80, 35, 50],
+            }]
+        };
+
+        var options = {
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            }
+        };
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
