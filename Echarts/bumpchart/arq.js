@@ -1,39 +1,51 @@
-var echarts = require('echarts');
+function drawBumpChart() {
+    // Seus dados para o bump chart
+    var data = [
+        ['A', 10],
+        ['B', 15],
+        ['C', 8],
+        ['D', 20],
+        ['E', 5]
+        // Adicione mais dados conforme necessário
+    ];
 
-var app = {};
+    // Organize os dados em ordem crescente
+    data.sort(function(a, b) {
+        return a[1] - b[1];
+    });
 
-const grafico = document.getElementById('myChart');
+    // Extraia os nomes das categorias e os valores
+    var categories = data.map(function(item) {
+        return item[0];
+    });
 
-const meuGrafico = echarts.init(grafico);
+    var values = data.map(function(item) {
+        return item[1];
+    });
 
-const nomes = [
-    'Laranja',
-    'Tomate',
-    'Maçã',
-    'Sakana',
-    'Banana',
-    'Iwashi',
-    'Peixe Rápido',
-    'Limão',
-    'Massa'
-];
+    // Configure o gráfico
+    var chart = echarts.init(document.getElementById('bumpChart'));
+    var option = {
+        title: {
+            text: 'Bump Chart'
+        },
+        xAxis: {
+            type: 'category',
+            data: categories
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            type: 'line',
+            data: values,
+            smooth: true
+        }]
+    };
 
-const anos = ['2001', '2002', '2003', '2004', '2005', '2006'];
+    // Atualize o gráfico com as opções
+    chart.setOption(option);
+}
 
-const embaralha = (array) => {
-    let indiceAtual = array.length;
-    let valorTemporario = 0;
-    while (indiceAtual > 0) {
-        valorTemporario = Math.floor(Math.random() * indiceAtual);
-        indiceAtual--;
-        [array[indiceAtual], array[valorTemporario]] = [
-            array[valorTemporario], 
-            array[indiceAtual]
-        ];
-    }
-    return array;
-};
-
-const geraDados = () => {
-    const classificacao = Array.from({length: nomes.length}, (_, i) => i + 1);
-    
+// Chame a função para desenhar o bump chart
+drawBumpChart();
