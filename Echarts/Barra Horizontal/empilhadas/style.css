@@ -1,0 +1,7 @@
+body {
+    margin: 20px; /* Adicione margens ao redor da página */
+}
+canvas {
+    display: block; /* Evita espaços adicionais ao redor do canvas */
+    margin-bottom: 20px; /* Adicione espaçamento abaixo do canvas */
+}
