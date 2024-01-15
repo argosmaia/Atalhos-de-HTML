@@ -16,9 +16,12 @@ const myChart = echarts.init(document.getElementById('graficoBarras'));
 const opcoes = {
     title: {
         text: 'Vendas para o Mercado - Pesquisas Universitárias',
-        left: '3%',
-        right: '4%',
-        top: '3%',
+        left: '3%', // alinhamento horizontal
+        right: '4%', // alinhamento horizontal
+        top: '3%', // alinhamento vertical
+        /** Tais alinhamentos acima são necessários para que o título não fique
+         * sobreposto aos rótulos do eixo Y.
+        */
     },
     legend: {
         data: rotulos
