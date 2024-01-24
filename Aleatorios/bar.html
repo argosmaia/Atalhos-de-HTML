@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart using innerHTML</title>
+  <style>
+    .chart-container {
+      width: 300px;
+      height: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container" id="chartContainer">
+    <!-- Chart content will be inserted here -->
+  </div>
+
+  <script>
+    // Example data for the chart
+    var data = [30, 50, 80, 120, 200];
+
+    // Function to create a simple bar chart using innerHTML
+    function createBarChart(data) {
+      var chartContainer = document.getElementById("chartContainer");
+      var chartHTML = "";
+
+      for (var i = 0; i < data.length; i++) {
+        chartHTML += '<div class="bar" style="height:' + data[i] + 'px;"></div>';
+      }
+
+      chartContainer.innerHTML = chartHTML;
+    }
+
+    // Call the function with the provided data
+    createBarChart(data);
+  </script>
+</body>
+</html>

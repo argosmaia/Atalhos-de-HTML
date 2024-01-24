@@ -1,0 +1,14 @@
+#chart-container {
+    width: 400px;
+    margin: 20px;
+  }
+
+.bar {
+    fill: steelblue;
+}
+
+text {
+    font-family: sans-serif;
+    font-size: 12px;
+    fill: #333;
+}

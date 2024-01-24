@@ -14,74 +14,74 @@ function gerarAnoAleatorio() {
 }
   
 
-setTimeout(function () {
+setTimeout(function () { // setTimeout serve para adicionar um delay na execução do código
     const primeiroAno = gerarAnoAleatorio();
 
     // Calcula os 5 anos seguintes
     const anos = Array.from({ length: 6 }, (_, i) => primeiroAno + i);
 
     opcao = {
-        legend: {}, // serve para mostrar a legenda do gráfico (não queremos)
-        tooltip: { // serve para mostrar informações ao passar o mouse sobre o gráfico
-            trigger: 'axis', // mostra informações ao passar o mouse sobre o eixo X
-            showContent: false // não mostra informações ao passar o mouse sobre o eixo Y
-        },
-        dataset: { // serve para definir os dados do gráfico
-            source: [ // serve para definir os dados do gráfico
-                ['produto', ...anos],
-                ['Produto A', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)],
-                ['Produto B', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)],
-                ['Produto C', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)],
-                ['Produto D', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)]
-            ]
-        },
+      legend: {}, // serve para mostrar a legenda do gráfico (não queremos)
+      tooltip: { // serve para mostrar informações ao passar o mouse sobre o gráfico
+          trigger: 'axis', // mostra informações ao passar o mouse sobre o eixo X
+          showContent: false // não mostra informações ao passar o mouse sobre o eixo Y
+      },
+      dataset: { // serve para definir os dados do gráfico
+          source: [ // serve para definir os dados do gráfico
+              ['produto', ...anos],
+              ['Produto A', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)],
+              ['Produto B', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)],
+              ['Produto C', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)],
+              ['Produto D', gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0), gerador(0.0, 100.0)]
+          ]
+      },
 
-        xAxis: { type: 'category' }, // serve para definir o tipo de eixo X
-        yAxis: {gridIndex: 0}, // serve para definir o tipo de eixo Y
-        grid: {top: '55%'}, // serve para definir a posição do gráfico
-        series: [ // serve para definir o tipo de gráfico
-            {
-              type: 'line',
-              smooth: true,
-              seriesLayoutBy: 'row',
-              emphasis: { focus: 'series' }
+      xAxis: { type: 'category' }, // serve para definir o tipo de eixo X
+      yAxis: {gridIndex: 0}, // serve para definir o tipo de eixo Y
+      grid: {top: '55%'}, // serve para definir a posição do gráfico
+      series: [ // serve para definir o tipo de gráfico
+          {
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' }
+          },
+          {
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' }
+          },
+          {
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' }
+          },
+          {
+            type: 'line',
+            smooth: true,
+            seriesLayoutBy: 'row',
+            emphasis: { focus: 'series' }
+          },
+          {
+            type: 'pie',
+            id: 'pie',
+            radius: '30%',
+            center: ['50%', '25%'],
+            emphasis: {
+              focus: 'self'
             },
-            {
-              type: 'line',
-              smooth: true,
-              seriesLayoutBy: 'row',
-              emphasis: { focus: 'series' }
+            label: {
+              formatter: '{b}: {@2012} ({d}%)'
             },
-            {
-              type: 'line',
-              smooth: true,
-              seriesLayoutBy: 'row',
-              emphasis: { focus: 'series' }
-            },
-            {
-              type: 'line',
-              smooth: true,
-              seriesLayoutBy: 'row',
-              emphasis: { focus: 'series' }
-            },
-            {
-              type: 'pie',
-              id: 'pie',
-              radius: '30%',
-              center: ['50%', '25%'],
-              emphasis: {
-                focus: 'self'
-              },
-              label: {
-                formatter: '{b}: {@2012} ({d}%)'
-              },
-              encode: {
-                itemName: 'product',
-                value: '2012',
-                tooltip: '2012'
-              }
+            encode: {
+              itemName: 'product',
+              value: '2012',
+              tooltip: '2012'
             }
-        ]
+          }
+      ]
     }
     chart.on('updateAxisPointer', function (event) {
         const xAxisInfo = event.axesInfo[0];
