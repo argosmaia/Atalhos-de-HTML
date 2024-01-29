@@ -9,6 +9,7 @@ function getRandomInt() {
 }
 
 let num = [getRandomInt(), getRandomInt(), getRandomInt(),
-           getRandomInt(), getRandomInt(), getRandomInt()].map(tripleDoubleQuadruple);
-
+           getRandomInt(), getRandomInt(), getRandomInt()]
+           .map(tripleDoubleQuadruple);
+ 
 console.log(num);
